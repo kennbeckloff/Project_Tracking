@@ -19,8 +19,8 @@ gem 'devise_token_auth'
 # gem 'devise_token_auth'
 
 # serializer
-gem "active_model_serializers", "~> 0.10.12"
-gem 'devise_token_auth'
+# gem "active_model_serializers", "~> 0.10.12"
+# gem 'devise_token_auth'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
