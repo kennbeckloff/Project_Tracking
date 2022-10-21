@@ -8,6 +8,11 @@ gem "rails", "~> 7.0.4"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+# serializer
+gem "active_model_serializers", "~> 0.10.12"
+gem 'devise_token_auth'
+
+gem 'active_model_serializers', '~> 0.10.12'
 
 # serializer
 gem "active_model_serializers", "~> 0.10.12"
@@ -38,7 +43,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+gem "rack-cors"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -50,3 +55,6 @@ group :development do
   # gem "spring"
 end
 
+gem 'active_model_serializers', '~> 0.10.12'
+
+gem 'devise_token_auth'
