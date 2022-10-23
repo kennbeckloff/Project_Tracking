@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   def create
     @project = Project.new(project_params)
+    @project.user_id=current_user.id
 
     if @project.save
       render json: @project, status: :created, location: @project
@@ -28,7 +29,8 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   def update
-    if @project.update(project_params)
+    if @project.id=current_user.id 
+      @project.update(project_params)
       render json: @project
     else
       render json: @project.errors, status: :unprocessable_entity
@@ -36,8 +38,17 @@ class ProjectsController < ApplicationController
   end
 
   # DELETE /projects/1
-  def destroy
+   def destroy
+    if current_user.role=="admin"
     @project.destroy
+    else
+      render json: { error: "You are not an admin" }, status: :not_found
+    end
+  end
+
+  def my_project
+    @project= current_user.projects
+    render json: @project
   end
 
   private
