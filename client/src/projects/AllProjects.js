@@ -5,7 +5,7 @@ import Spinner from "react-bootstrap/Spinner";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Button} from "react-bootstrap";
+// import { Button} from "react-bootstrap";
 import DeleteConfirmation from "../components/shared/DeleteConfirmation";
 // import Members from "./Members";
 
@@ -129,7 +129,7 @@ const AllProjects = () => {
         hideDeleteModalHandler={hideDeleteModalHandler}
         confirmDeleteModalHandler={confirmDeleteModalHandler}
       ></DeleteConfirmation>
-  <Container className="mt-2">{contentToRender}</Container>;
+  <Container className="mt-2">{contentToRender}</Container>
   </>
   ) 
 };
