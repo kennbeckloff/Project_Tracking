@@ -1,5 +1,5 @@
 class CohortsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   before_action :set_cohort, only: %i[ show update destroy ]
 

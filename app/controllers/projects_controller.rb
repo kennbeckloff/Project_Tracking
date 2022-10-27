@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   before_action :set_project, only: %i[ show update destroy ]
 
@@ -16,35 +16,60 @@ class ProjectsController < ApplicationController
   end
 
   # POST /projects
+  # def create
+  #   @project = Project.new(project_params)
+  #   @project.user_id=current_user.id
+
+  #   if @project.save
+  #     render json: @project, status: :created, location: @project
+  #   else
+  #     render json: @project.errors, status: :unprocessable_entity
+  #   end
+  # end
+
   def create
-    @project = Project.new(project_params)
-    @project.user_id=current_user.id
-
-    if @project.save
-      render json: @project, status: :created, location: @project
-    else
-      render json: @project.errors, status: :unprocessable_entity
-    end
+    project = Project.create(project_params)
+    render json: project, status: :created
   end
-
   # PATCH/PUT /projects/1
+  # def update
+  #   if @project.id=current_user.id 
+  #     @project.update(project_params)
+  #     render json: @project
+  #   else
+  #     render json: @project.errors, status: :unprocessable_entity
+  #   end
+  # end
+
   def update
-    if @project.id=current_user.id 
-      @project.update(project_params)
-      render json: @project
-    else
-      render json: @project.errors, status: :unprocessable_entity
-    end
-  end
+    project = Project.find(params[:id])
+    if project
+      project.update(project_params)
+      render json: project
+    else 
+      render json: {error: "Project not found"}, status: :not_found
+    end 
+  end 
+
 
   # DELETE /projects/1
-   def destroy
-    if current_user.role=="admin"
-    @project.destroy
-    else
-      render json: { error: "You are not an admin" }, status: :not_found
-    end
-  end
+  #  def destroy
+  #   if current_user.role=="admin"
+  #   @project.destroy
+  #   else
+  #     render json: { error: "You are not an admin" }, status: :not_found
+  #   end
+  # end
+
+  def destroy
+    project = Project.find(params[:id])
+    if project
+      project.destroy
+      head :no_content
+    else 
+      render json: {error: "Project not found"}, status: :not_found
+    end 
+  end 
 
   def my_project
     @project= current_user.projects
