@@ -42,7 +42,7 @@ const initialState = {
 };
 
 //project slice 
-const projectslice = createSlice({
+const adminprojectslice = createSlice({
   name: "projects",
   initialState,
   reducers: {},
@@ -90,4 +90,4 @@ export const getLoading = (state) => state.project.loading;
 export const getProjectById = (id) => {
   return (state) => state.project.projectsData.filter((_) => _.id === id)[0];
 };
-export default projectslice.reducer;
+export default adminprojectslice.reducer;

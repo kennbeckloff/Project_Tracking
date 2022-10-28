@@ -1,9 +1,9 @@
 import "./App.css";
 import Layout from "./components/shared/Layout";
 import { Route, Routes } from "react-router-dom";
-import AllProjects from "./projects/AllProjects";
-import AddProject from "./projects/AddProject";
-import EditProject from "./projects/EditProject";
+import AdminAllProjects from "./adminprojects/AdminAllProjects";
+import AdminAddProject from "./adminprojects/AdminAddProject";
+import AdminEditProject from "./adminprojects/AdminEditProject";
 import Cohort from "./cohorts/Cohort";
 
 function App() {
@@ -12,9 +12,9 @@ function App() {
       <div>
         <Layout>
           <Routes>
-            <Route path="/" element={<AllProjects />}></Route>
-            <Route path="/add" element={<AddProject />}></Route>
-            <Route path="/edit/:id" element={<EditProject />}></Route>
+            <Route path="/" element={<AdminAllProjects />}></Route>
+            <Route path="/add" element={<AdminAddProject />}></Route>
+            <Route path="/edit/:id" element={<AdminEditProject />}></Route>
             <Route path="/cohort" element={<Cohort />}></Route>
           </Routes>
         </Layout>

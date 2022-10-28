@@ -1,21 +1,17 @@
 import { Col, Container, Form, Row, Button } from "react-bootstrap";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getProjectById,
-  getLoading,
-  updateProject,
-} from "./projectslice";
-import { useNavigate, useParams } from "react-router-dom";
+import { getLoading, saveNewProject } from "./adminprojectslice";
+import { useNavigate } from "react-router-dom";
 
-const EditProject = () => {
-  const { id } = useParams();
-  const edit = useSelector(getProjectById(Number(id)));
+const AdminAddProject = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      name: edit.name,
-      category: edit.category,
-      description: edit.description,
+      name: "",
+      category: "",
+      description: "",
+      github_link: "",
+       user_id:"",
     },
   });
 
@@ -23,28 +19,27 @@ const EditProject = () => {
   const navigate = useNavigate();
   const apiStatus = useSelector(getLoading);
 
-  const updateProjectForm = (data) => {
+  const createNewProject = (data) => {
     let payload = {
-      id: Number(id),
       name: data.name,
       category: data.category,
       description: data.description,
-      github_link: data.github_link
+      github_link: data.github_link,
+      user_id: data.user_id,
     };
-    disptach(updateProject(payload))
+    disptach(saveNewProject(payload))
       .unwrap()
       .then(() => {
         navigate("/");
       });
   };
-
   return (
     <>
       <Container className="mt-2">
         <Row>
           <Col className="col-md-8 offset-md-2">
-            <legend>Update A Project</legend>
-            <Form onSubmit={handleSubmit(updateProjectForm)}>
+            <legend>Create A New Project</legend>
+            <Form onSubmit={handleSubmit(createNewProject)}>
               <Form.Group className="mb-3" controlId="formName">
                 <Form.Label>Name</Form.Label>
                 <Controller
@@ -74,7 +69,7 @@ const EditProject = () => {
                   )}
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formdescription">
+              <Form.Group className="mb-3" controlId="formDescription">
                 <Form.Label>description</Form.Label>
                 <Controller
                   control={control}
@@ -94,13 +89,22 @@ const EditProject = () => {
                   )}
                 />
               </Form.Group>
-
+              <Form.Group className="mb-3" controlId="formuser_id">
+                <Form.Label>user_id</Form.Label>
+                <Controller
+                  control={control}
+                  name="user_id"
+                  render={({ field }) => (
+                    <Form.Control type="text" {...field} />
+                  )}
+                />
+              </Form.Group>
               <Button
                 variant="dark"
                 type="submit"
                 disabled={apiStatus === "pending"}
               >
-                {apiStatus === "pending" ? "Updating........." : "Update"}
+                {apiStatus === "pending" ? "Saving........." : "Save"}
               </Button>
             </Form>
           </Col>
@@ -109,4 +113,5 @@ const EditProject = () => {
     </>
   );
 };
-export default EditProject;
+
+export default AdminAddProject;

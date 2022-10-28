@@ -1,4 +1,4 @@
-import { fetchALLProjects, getAllProjects, getLoading, deleteProject } from "./projectslice";
+import { fetchALLProjects, getAllProjects, getLoading, deleteProject } from "./adminprojectslice";
 import { Col, Container, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import DeleteConfirmation from "../components/shared/DeleteConfirmation";
 // import Members from "./Members";
 
-const AllProjects = () => {
+const AdminAllProjects = () => {
   const navigate = useNavigate();
   const allProjects = useSelector(getAllProjects);
   const apiStatus = useSelector(getLoading);
@@ -134,4 +134,4 @@ const AllProjects = () => {
   ) 
 };
 
-export default AllProjects;
+export default AdminAllProjects;
