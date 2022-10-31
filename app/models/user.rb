@@ -18,4 +18,5 @@ end
 
   has_many :projects
   has_many :members
+  belongs_to :cohort
 end

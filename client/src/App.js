@@ -5,6 +5,7 @@ import AdminAllProjects from "./adminprojects/AdminAllProjects";
 import AdminAddProject from "./adminprojects/AdminAddProject";
 import AdminEditProject from "./adminprojects/AdminEditProject";
 import Cohort from "./cohorts/Cohort";
+import User from "./users/User";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/add" element={<AdminAddProject />}></Route>
             <Route path="/edit/:id" element={<AdminEditProject />}></Route>
             <Route path="/cohort" element={<Cohort />}></Route>
+            <Route path = "/user"  element ={<User/>}></Route>
           </Routes>
         </Layout>
       </div>
