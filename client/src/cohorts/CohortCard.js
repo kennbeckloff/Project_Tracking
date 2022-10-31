@@ -17,7 +17,7 @@ function CohortCard({cohort, onDeleteCohort}) {
         <h2>{name}</h2>
         <p>{description}</p>
 
-        <button onClick={handleDeleteCohort}>Delete</button>
+        <button onClick={handleDeleteCohort} id="primary-btn">Delete</button>
     </div>
   )
 }

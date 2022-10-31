@@ -30,7 +30,7 @@ function EditUser({ editForm, handleUserUpdate, handleChange }) {
                 <input type="text" name="last_name" value={last_name} onChange={handleChange}/>
                 <input type="text" name="email" value={email} onChange={handleChange}/>
                 <input type="text" name="cohort_id" value={cohort_id} onChange={handleChange}/>
-                <button type="submit" >Submit Changes</button>
+                <button type="submit" id="primary-btn" >Submit Changes</button>
             </form>
         </div>
     )

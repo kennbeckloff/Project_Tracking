@@ -100,7 +100,7 @@ const AdminAddProject = () => {
                 />
               </Form.Group>
               <Button
-                variant="dark"
+                id="primary-btn"
                 type="submit"
                 disabled={apiStatus === "pending"}
               >

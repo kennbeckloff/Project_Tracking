@@ -10,6 +10,7 @@ function UserRow({user, user:{id, first_name, last_name, email, cohort_id}, capt
             <td>{cohort_id}</td>
             <td>
                 <button
+                  id="primary-btn"                
                   onClick={() => {
                     captureEdit(user);
                     changeEditState(user)
