@@ -1,53 +1,34 @@
 class UsersController < ApplicationController
-    # before_action :authenticate_user!
+    # skip_before_action :authorize, only: :create
 
-  before_action :set_user, only: %i[ show update destroy ]
 
-  # GET /users
-  def index
-    @users = User.all
-
-    render json: @users
-  end
-
-  # GET /users/1
-  def show
-    render json: @user
-  end
-
-  # POST /users
-  def create
-    @users = User.new(user_params)
-
-    if @user.save
-      render json: @user, status: :created, location: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
+    def index
+      render json: User.all, status: :ok
     end
-  end
+  
 
-  # PATCH/PUT /users/1
-  def update
-    if @user.update(user_params)
-      render json: @users
-    else
-      render json: @user.errors, status: :unprocessable_entity
+    def create
+      user = User.create!(user_params)
+      session[:user_id] = user.id
+      render json: user, status: :created
     end
-  end
-
-  # DELETE /members/1
-  def destroy
-    @user.destroy
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
+  
+    def show
+      render json: @current_user
     end
 
-    # Only allow a list of trusted parameters through.
+    def update
+      user = User.find(params[:id])
+      if user
+        user.update(user_params)
+        render json: user
+      else 
+        render json: {error: "Project not found"}, status: :not_found
+      end 
+    end 
+    private
+  
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :cohort_id)
+      params.permit(:first_name, :email, :password, :password_confirmation,:role, :cohort_id, :last_name)
     end
 end
