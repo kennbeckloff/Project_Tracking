@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :cohorts
   resources :members
   resources :projects
+  resources :users
   mount_devise_token_auth_for 'User', at: 'auth'
   #  get all individual user projects
   get 'myprojects', to: 'projects#my_project'
