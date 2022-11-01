@@ -21,7 +21,7 @@ export const saveNewProject = createAsyncThunk(
 );
 // updating project
 export const updateProject = createAsyncThunk("projects/updateAPI", async (payload) => {
-  const response = await axios.put(
+  const response = await axios.patch(
     `/projects${payload.id}`,
     payload
   );
