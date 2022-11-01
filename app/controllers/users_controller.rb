@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # skip_before_action :authorize, only: :create
+    skip_before_action :authorize, only: :create
 
 
     def index
@@ -16,19 +16,10 @@ class UsersController < ApplicationController
     def show
       render json: @current_user
     end
-
-    def update
-      user = User.find(params[:id])
-      if user
-        user.update(user_params)
-        render json: user
-      else 
-        render json: {error: "Project not found"}, status: :not_found
-      end 
-    end 
+  
     private
   
     def user_params
-      params.permit(:first_name, :email, :password, :password_confirmation,:role, :cohort_id, :last_name)
+      params.permit(:username, :password, :password_confirmation,:role, :cohort_id, :last_name)
     end
 end
