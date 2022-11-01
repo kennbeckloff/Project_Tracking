@@ -1,34 +1,23 @@
-.user-container {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  padding: 1rem;
+.App {
+  width: 100vw;
+  height: 100vh;
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
+body {
+  margin: 0;
+  padding: 0;
 }
- .sidebar{
+
+.Sidebar {
   height: 100vh;
   width: 350px;
   background-color: #cccc;
   padding-top: 10%;
- }
-
- .Container {
-  display: flex;
 }
 
-
-.sidelist {
+.Sidelist {
   width: 100%;
   padding: 0;
-}
-
-.active {
-  background: #FF725E;
-  color: #fff
 }
 
 .siderow {
@@ -42,6 +31,42 @@ table {
   color: inherit;
 }
 
+#icon {
+  flex: 30%;
+  display: grid;
+  place-items: center;
+}
+
+#title{
+  flex: 70%;
+}
+
+main {
+  width: 100%;
+  padding: 20px;
+}
+
+.Container {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.active {
+  background: #FF725E;
+  color: #fff
+}
+
+.hoe {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  line-height: 3;
+}
+
 button#primary-btn {
   background: #FF725E;
   border: transparent;
@@ -53,32 +78,8 @@ button#logout-primary {
   border: none;
 }
 
-/* th,
-td {
-  border: 1px solid #ffffff;
-  text-align: left;
-  padding: 8px;
-  font-size: 16px;
+button#logout-secondary {
+  background: transparent;
+  border: solid 1px #FF725E;
+  color: black;
 }
-
-th {
-  background-color: #cccc;
-}
-
-td {
-  background-color: #cccc;
-}
-
-form {
-  display: flex;
-  gap: 5px;
-}
-
-form td:last-child {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-form * {
-  font-size: 28px;
-} */
