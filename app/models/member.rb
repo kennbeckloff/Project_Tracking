@@ -1,5 +1,5 @@
 class Member < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
   belongs_to :project
   
   validates :user_id, presence: true

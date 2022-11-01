@@ -1,5 +1,5 @@
 class CohortsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   before_action :set_cohort, only: %i[ show update destroy ]
 
@@ -48,6 +48,7 @@ class CohortsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cohort_params
-      params.require(:cohort).permit(:name)
+      params.permit(:name, :description)
     end
 end
+ 
