@@ -219,7 +219,6 @@ rails s
 
 -- 
 
-## -- You can also search for a question.
 
 ### Contributing to project
 
