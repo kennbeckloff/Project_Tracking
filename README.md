@@ -19,14 +19,19 @@ and create a network of students who would either want to collaborate with proje
 ## Screen shots
 
 ### Signup Page
+![signuptrac](https://user-images.githubusercontent.com/36301800/199654235-dcfda0b9-cc9e-4f05-be3b-e6d5841e9181.png)
 
 #### login Page
+![traclogin](https://user-images.githubusercontent.com/36301800/199654089-5d991657-0d0c-41fe-927c-c1a84a0b4817.png)
 
 ### Projects page
+![userproject](https://user-images.githubusercontent.com/36301800/199654362-8c7d14fd-8cc9-4276-b698-bdcce433475d.png)
 
 #### Add Project
+![addproject](https://user-images.githubusercontent.com/36301800/199654463-dc1f7a47-9800-40b7-9779-39dd9747bdbf.png)
 
 #### Admin Panel
+![admindash](https://user-images.githubusercontent.com/36301800/199654593-9efe359f-504e-4e91-997e-ac0dbb06116c.png)
 
 
 ## Table of content
