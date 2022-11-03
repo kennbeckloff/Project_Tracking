@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
+import { useNavigate } from "react-router-dom";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function NavBar({ user, setUser }) {
+   const navigate = useNavigate();
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -12,25 +15,21 @@ function NavBar({ user, setUser }) {
     });
   }
 
+  
+
+
+  console.log(user.username)
+
   return (
     <Wrapper>
-      <Nav>
-        <Button variant="outline" onClick={handleLogoutClick}>
-          {user.username}
-        </Button>
-      </Nav>
-      <Logo>
-        <Link to="/">App test</Link>
-      </Logo>
-      <Nav>
-        <Button variant="outline" onClick={handleLogoutClick}>
-          {user.username}
-        </Button>
-      </Nav>
-
-      <Nav>
-        <Button variant="outline" onClick={handleLogoutClick}>
-          Logout
+      <Nav id="user">
+        {user.username}
+        <Button
+          id= "btnlog"
+          variant="outline"
+          onClick={(handleLogoutClick)}
+        >
+          <LogoutIcon />
         </Button>
       </Nav>
     </Wrapper>

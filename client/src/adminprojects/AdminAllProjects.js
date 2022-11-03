@@ -7,9 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 // import { Button} from "react-bootstrap";
 import DeleteConfirmation from "../components/shared/DeleteConfirmation";
+import AdminBar from "../components/shared/AdminBar";
 // import Members from "./Members";
 
-const AdminAllProjects = () => {
+const AdminAllProjects = ({user, setUser}) => {
   const navigate = useNavigate();
   const allProjects = useSelector(getAllProjects);
   const apiStatus = useSelector(getLoading);
@@ -37,6 +38,7 @@ const AdminAllProjects = () => {
       .then(() => {
         setShowModal(false);
         setItemToDeleteId(0);
+        navigate("/");
       });
   };
  
@@ -119,19 +121,21 @@ const AdminAllProjects = () => {
       </>
     );
 
-  return(
-  <>
-   <DeleteConfirmation
-        title="Delete Confirmation!"
-        body="Are sure to delete this item"
-        showModal={showModal}
-        apiStatus={apiStatus}
-        hideDeleteModalHandler={hideDeleteModalHandler}
-        confirmDeleteModalHandler={confirmDeleteModalHandler}
-      ></DeleteConfirmation>
-  <Container className="mt-2">{contentToRender}</Container>
-  </>
-  ) 
+  return (
+    <>
+      <AdminBar user={user} setUser={setUser}>
+        <DeleteConfirmation
+          title="Delete Confirmation!"
+          body="Are sure to delete this item"
+          showModal={showModal}
+          apiStatus={apiStatus}
+          hideDeleteModalHandler={hideDeleteModalHandler}
+          confirmDeleteModalHandler={confirmDeleteModalHandler}
+        ></DeleteConfirmation>
+        <Container className="mt-2">{contentToRender}</Container>
+      </AdminBar>
+    </>
+  ); 
 };
 
 export default AdminAllProjects;

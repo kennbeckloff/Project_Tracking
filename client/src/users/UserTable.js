@@ -8,9 +8,7 @@ function UserTable({users, onUpdateUser}) {
 // state for edit form inputs
   const [editForm, setEditForm] = useState({
     id: "",
-    first_name: "",
-    last_name: "",
-    email: "",
+    username: "",
     cohort_id: ""
   })
 
@@ -54,9 +52,7 @@ function UserTable({users, onUpdateUser}) {
         <table>
           <thead>
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
+              <th>User Name</th>
               <th>Cohort</th>
               <th>Action</th>
 

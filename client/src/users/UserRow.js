@@ -1,12 +1,14 @@
 import React from 'react'
 
-function UserRow({user, user:{id, first_name, last_name, email, cohort_id}, captureEdit, changeEditState}) {
-
+function UserRow({user, user:{id, username, cohort_id}, captureEdit, changeEditState}) {
+//  console.log(user)
     return (
         <tr key={id}>
-            <td>{first_name}</td>
-            <td>{last_name}</td>
-            <td>{email}</td>
+            <td>{username}</td>
+            {/* {cohort.map((cohort)=>( */}
+            {/* <td>{cohort}</td> */}
+            {/* ))} */}
+            
             <td>{cohort_id}</td>
             <td>
                 <button

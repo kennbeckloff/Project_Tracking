@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserTable from "./UserTable";
+import AdminBar from '../components/shared/AdminBar';
 
 function User() {
 // set state
@@ -25,13 +26,17 @@ function User() {
     )
     setUsers(updatedUser)
   }
-
+ const cohort = users.map((user) =>(
+  user.cohort
+ ))
   return (
     <div>
+      <AdminBar>
       <UserTable
-        users={users}
+        users={users} cohort = {cohort}
         onUpdateUser={onUpdateUser}
       />
+      </AdminBar>
     </div>
   );
 }

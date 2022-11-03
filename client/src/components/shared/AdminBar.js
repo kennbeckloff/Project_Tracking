@@ -1,9 +1,9 @@
 import React from 'react'
-import { SideBarData } from '../pages/SideBarData'
+import { AdminSideData } from '../../pages/AdminSideData'
 import { NavLink } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 
-function Sidebar({children, setUser}) {
+function AdminBar({children, setUser}) {
 
    function handleLogoutClick() {
      fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -17,7 +17,7 @@ function Sidebar({children, setUser}) {
     <div className="Container">
       <div className="Sidebar">
         <ul className="Sidelist">
-          {SideBarData.map((val, key) => {
+          {AdminSideData.map((val, key) => {
             return (
               <>
                 <NavLink
@@ -43,4 +43,4 @@ function Sidebar({children, setUser}) {
   );
 }
 
-export default Sidebar
+export default AdminBar
