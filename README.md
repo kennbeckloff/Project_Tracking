@@ -10,21 +10,33 @@
     Kenn Beckloff
     
 
+- Ruby version.
+
+-
 ## Project Description
 
 Project tracking system that keeps track of the projects done over time in order to have a project bank for future reference 
 and create a network of students who would either want to collaborate with project owners or borrow ideas from the projects. 
+ main
 
 
 ## Screen shots
 
 ### Signup Page
 
+
+
+
+* How to run the test suite
+
+- Services (job queues, cache servers, search engines, etc.)
+
 #### login Page
 
 ### Projects page
 
 #### Add Project
+ 
 
 #### Admin Panel
 
